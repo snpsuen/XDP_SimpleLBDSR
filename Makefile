@@ -16,7 +16,7 @@ clean:
 vmlinux.h:
 	bpftool btf dump file /sys/kernel/btf/vmlinux format c > $@
 
-$(BPF_OBJ): %.bpf.c vmlinux.h
+$(BPF_OBJ): $(BPF_C) vmlinux.h
 	$(CLANG) $(CFLAGS) -target bpf -c $<
 
 all: $(BPF_OBJ)
