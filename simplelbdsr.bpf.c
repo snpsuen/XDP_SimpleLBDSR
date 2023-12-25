@@ -13,7 +13,7 @@ struct {
 	__uint(max_entries, 100000);
 } forward_flow SEC(".maps");
 
-SEC("simplelbdsr")
+SEC("xdp")
 int xdp_dsr_load_balancer(struct xdp_md *ctx) {
     void *data = (void *)(long)ctx->data;
     void *data_end = (void *)(long)ctx->data_end;
